@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+:root {
+  --primary-purple: #6c25ff;
+  --secondary-bg: #f7f8f9;
+  --text-dark: #1d2226;
+  --text-grey: #919191;
+  --border-light: #cbcbcb;
+  --white: #ffffff;
+  --error: #ff3b30;
+  
+  --font-main: 'Rubik', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #f1f4f8; /* Softer background for desktop */
+  color: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base mobile container styling */
+.mobile-container {
+  width: 100%;
+  max-width: 375px; 
+  height: 100vh;
+  max-height: 812px;
+  background-color: var(--white);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-height: 812px) {
+  .mobile-container {
+    height: 812px;
+    border-radius: 20px;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .mobile-container {
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+/* Common Layout Utilities */
+.screen-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Titles & Texts */
+.title {
+  font-size: 24px;
+  font-weight: 700; /* Bolder titles */
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-grey);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-main);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: #6C25FF4B; /* Specific from design */
+  color: var(--text-dark);
+}
+
+.btn-disabled {
+  background-color: var(--border-light);
+  color: var(--white);
+  cursor: not-allowed;
+}
+
+/* Inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: var(--font-main);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--primary-purple);
+}
+
+.input-field::placeholder {
+  color: var(--text-grey);
+  font-size: 13px;
+}
+
+.input-label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: var(--white);
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--primary-purple);
+}
+
+.input-label.non-active {
+  color: var(--text-dark);
+}
+
+.label-required::after {
+  content: '*';
+  color: var(--error);
+  margin-left: 2px;
+}
